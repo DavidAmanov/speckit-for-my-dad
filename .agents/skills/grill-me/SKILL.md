@@ -4,7 +4,8 @@ description: Interview the user relentlessly about a plan, design, or feature id
 ---
 
 <!-- Adapted from Rob Mitterando's grill-me-skill: https://github.com/RobMitt/grill-me-skill
-     See LICENSE in this repo's root for attribution details. -->
+     See LICENSE in the speckit-for-my-dad repo root (in a user project: .agents/LICENSE-speckit-for-my-dad)
+     for attribution details. -->
 
 Interview the user relentlessly about every aspect of their plan until you reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one.
 

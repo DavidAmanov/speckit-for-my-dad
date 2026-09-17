@@ -1,6 +1,6 @@
 ---
-name: teach-me
-description: Explain how this specific project works, grounded in its actual current skills, rules, and files, not a generic description of spec-kit. Use when the user runs /teach-me or asks how something in this project works.
+name: explain-me
+description: Explain how this specific project works, grounded in its actual current skills, rules, and files, not a generic description of spec-kit. Use when the user runs /explain-me or asks how something in this project works.
 ---
 
 Explain this project to the user, grounded in what is actually here — never a generic description of spec-kit or of AI coding agents in general.
@@ -10,7 +10,7 @@ Explain this project to the user, grounded in what is actually here — never a 
 1. Read every `SKILL.md` under `.agents/skills/` to know what skills actually exist and what they actually do.
 2. Read `AGENTS.md` for the current language setting, the list of skills, and the behavioral rules this project runs under.
 3. Read `guide-for-dad.md` for the full step-by-step workflow and glossary.
-4. Read `README.md` for the project overview.
+4. In the speckit-for-my-dad folder (`.agents/skills/new-project/` exists), read `README.md` for the overview. In a user project, `README.md` belongs to the user's app — read `.agents/speckit-for-my-dad.version` instead to know which version of the skills and guide is installed.
 5. If the project has a `.specify/` directory or `specs/` directory already (i.e. spec-kit has been initialized), skim what's in there too — the user may be asking about their actual current spec/plan/tasks, not the abstract workflow.
 
 ## Then

@@ -19,7 +19,9 @@ In your agent chat:
 ```
 /start-guide
 ```
-This walks through installing git, uv, Python, and spec-kit, initializing your project, writing a constitution, and then your first feature — pausing after each step for you to confirm.
+This walks through installing git, uv, Python, and spec-kit, then creates your project in its own folder (`/new-project`) with this guide and all the skills copied in. You then open your agent in the project folder and run `/start-guide` again for the constitution and your first feature — pausing after each step for you to confirm.
+
+This folder is only for setup and for creating or updating projects. Your app never lives here.
 
 ### Option 2: Manual Setup
 
@@ -35,16 +37,36 @@ speckit-for-my-dad/
 ├── AGENTS.md                 # Agent config: language setting, skill list, workflow rules
 ├── CLAUDE.md                 # Symlink → AGENTS.md, so Claude Code reads the same file
 └── .agents/skills/           # Canonical skill files (read natively by Codex CLI, opencode)
+    ├── new-project/SKILL.md  # wrapper-only, not copied into projects
     ├── start-guide/SKILL.md
     ├── choose-language/SKILL.md
     ├── grill-me/SKILL.md
-    ├── teach-me/SKILL.md
+    ├── explain-me/SKILL.md
+    ├── helper/SKILL.md
+    ├── deployer/SKILL.md
     ├── where-am-i/SKILL.md
     ├── create-new-task/SKILL.md
     └── fix-issues-after-analyze/SKILL.md
 ```
 
 `.claude/skills/<name>` are symlinks into `.agents/skills/<name>` — Claude Code reads skills only from `.claude/skills/`, so the symlinks make the same files visible there without duplicating content. **Edit skills under `.agents/skills/` only.**
+
+### What a user project gets
+
+`/new-project` creates the project in its own folder with `specify init`, then copies in:
+
+```
+my-app/
+├── guide-for-dad.md                   # copy of the guide (plus any guide-for-dad-*.md translations)
+├── AGENTS.md                          # the block between the speckit-for-my-dad markers
+├── CLAUDE.md                          # one line: @AGENTS.md
+├── .agents/skills/<skill>/            # real copies, not symlinks (Windows-safe)
+├── .claude/skills/<skill>/            # same copies, for Claude Code
+├── .agents/LICENSE-speckit-for-my-dad
+└── .agents/speckit-for-my-dad.version # source commit, skill list, guide hashes
+```
+
+To update a project: `git pull` here, then `/new-project <path-to-project>`. It replaces only the files above, keeps the project's language, and asks before overwriting a guide the user edited.
 
 ## Supported Languages
 
@@ -57,7 +79,7 @@ speckit-for-my-dad/
 - Japanese (jpn)
 - Chinese (zho)
 
-Change anytime with `/choose-language`. The current setting lives in [AGENTS.md](./AGENTS.md), not in a separate rules file.
+Change anytime with `/choose-language`. The current setting lives in [AGENTS.md](./AGENTS.md), not in a separate rules file. New projects start with the language set here, and each project can then change its own.
 
 ## Standard Spec-Kit Commands
 
@@ -80,10 +102,13 @@ Once `specify init` has run, spec-kit exposes these commands. Depending on which
 
 | Skill | What it does |
 |---|---|
+| `/new-project` | Creates a project in its own folder and copies the guide and skills into it, or updates an existing one (run in this folder only) |
 | `/start-guide` | Runs the full guide, one paced step at a time |
 | `/choose-language` | Switches the project's language |
 | `/grill-me` | Interviews you about a feature idea before you specify it |
-| `/teach-me` | Explains this project, grounded in its actual current files |
+| `/explain-me` | Explains this project, grounded in its actual current files |
+| `/helper` | Answers questions about your project's code, structure, and database in plain language — never edits anything |
+| `/deployer` | Helps put your project on a server (SSH, Docker, git), keeps the server secure, sets up one-command deploys |
 | `/where-am-i` | Recovers where you left off and suggests next steps |
 | `/create-new-task` | Adds one task to the current `tasks.md` without regenerating it |
 | `/fix-issues-after-analyze` | Fixes findings from `analyze` and logs them to `issues-table.md`, flagging repeat problems |
@@ -106,7 +131,7 @@ Have suggestions to improve this guide? Add new skills, improve documentation, a
 ## Support
 
 - Check the FAQ in [guide-for-dad.md](./guide-for-dad.md)
-- Run `/where-am-i` or `/teach-me` in the agent chat
+- Run `/where-am-i` or `/explain-me` in the agent chat
 - Read the skill files directly under [.agents/skills/](./.agents/skills/)
 
 ## Credits

@@ -28,6 +28,7 @@ Change the project's language setting and switch to it immediately.
 
 ## Notes
 
+- In the speckit-for-my-dad folder, the choice is copied into each new project by `new-project`. In a project, it applies to that project only, and updates keep it.
 - `AGENTS.md` is the single source of truth for the language setting — every other skill in this project reads it from there. Do not create a separate language file.
 - Existing files already written in the old language are not retroactively translated.
 - Code comments stay in English unless the user asks otherwise.

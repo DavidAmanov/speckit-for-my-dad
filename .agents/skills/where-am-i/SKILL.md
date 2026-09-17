@@ -11,6 +11,9 @@ Figure out where the user left off and tell them, in plain language, then offer 
 2. Check the most recent git commit: message and changed files (`git log -1` and `git show --stat HEAD`).
 3. Check for a `.specify/` or `specs/*/` directory. If a feature branch/folder exists, read whichever of `spec.md`, `plan.md`, `tasks.md`, or `issues-table.md` was modified most recently, and note how many tasks in `tasks.md` are checked off (`[X]`) versus open (`[ ]`).
 4. Check for any recent error output in the conversation that was never resolved.
+5. Check which folder you're in:
+   - `.agents/skills/new-project/SKILL.md` exists → this is the speckit-for-my-dad folder, not a project. Projects live in their own folders. Tell the user that, and offer `/new-project` for a new one, or ask them to open the agent in their project folder to continue one.
+   - `.agents/speckit-for-my-dad.version` exists → this is a project. Read its `commit=` and `source=`. If the source folder still exists, compare with `git -C <source> rev-parse --short HEAD`; if they differ, mention in one line that newer skills and guide are available (`/new-project <this folder>` in the speckit-for-my-dad folder).
 
 ## Report to the user
 
