@@ -7,6 +7,9 @@ Fix the inconsistencies that the spec-kit analyze step found between the specifi
 
 ## When to use
 
+spec-kit projects only (`.specify/` exists). OpenSpec has no analyze step — in an OpenSpec project, say so and suggest correcting the change's documents, `/opsx:update`, and `openspec validate <change>` instead.
+
+
 Run this right after `speckit-analyze` / `/speckit.analyze` reports findings (duplications, ambiguities, underspecification, constitution conflicts, coverage gaps, or inconsistencies).
 
 ## Steps

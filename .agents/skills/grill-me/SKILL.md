@@ -1,6 +1,6 @@
 ---
 name: grill-me
-description: Interview the user relentlessly about a plan, design, or feature idea until reaching shared understanding, resolving each branch of the decision tree. Use when the user wants to stress-test a plan, get grilled on their design, mentions "grill me", or is about to run /speckit.specify with an idea that is still vague.
+description: Interview the user relentlessly about a plan, design, or feature idea until reaching shared understanding, resolving each branch of the decision tree. Use when the user wants to stress-test a plan, get grilled on their design, mentions "grill me", or is about to run /speckit.specify or /opsx:propose with an idea that is still vague.
 ---
 
 <!-- Adapted from Rob Mitterando's grill-me-skill: https://github.com/RobMitt/grill-me-skill
@@ -24,7 +24,9 @@ For each question, provide 2–4 concrete multiple-choice options representing t
 3. Continue until all branches of the design tree are resolved.
 4. When finished, provide a concise summary of all decisions made.
 
-## When used before `/speckit.specify`
+## When used before `/speckit.specify` or `/opsx:propose`
+
+For OpenSpec, read `/speckit.specify` below as `/opsx:propose`, and `/speckit.plan` as the change's `design.md`.
 
 - Keep every question about *what* the user wants and *why*, never about implementation (languages, frameworks, databases) — that belongs to `/speckit.plan`, not here. If the user volunteers a tech-stack answer, note it aside for the planning step and steer the question back to behavior.
 - Explicitly resolve scope: does this idea describe **one** user-visible action, or several? If several, say so and ask the user to pick the first one — the rest become separate features, each with their own `/speckit.specify` run later.

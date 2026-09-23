@@ -1,12 +1,13 @@
 # Spec-Kit for My Dad
 
-A beginner-friendly guide and skill layer for using [GitHub's spec-kit](https://github.com/github/spec-kit) (Specification-Driven Development) with an AI coding agent — **works with Claude Code, Codex CLI, opencode, and any other agent that supports the shared "Agent Skills" format.**
+A beginner-friendly guide and skill layer for using [GitHub's spec-kit](https://github.com/github/spec-kit) or [OpenSpec](https://github.com/Fission-AI/OpenSpec) (Specification-Driven Development) with an AI coding agent — **works with Claude Code, Codex CLI, opencode, and any other agent that supports the shared "Agent Skills" format.**
 
 ## What is This?
 
-This project simplifies spec-kit for someone with little or no coding background:
+This project simplifies spec-kit and OpenSpec for someone with little or no coding background:
 
-- **Step-by-step guide** ([guide-for-dad.md](./guide-for-dad.md)), split into a one-time setup and a repeatable per-feature loop, with a "what to check" list at every step
+- **Choice of toolkit** — spec-kit (strict, many checks, best for new apps and learning) or OpenSpec (light, best for changing existing apps and quick iterations), picked per project with a short "best for" under each
+- **Step-by-step guide** ([guide-for-dad.md](./guide-for-dad.md)), split into a one-time setup and a repeatable per-feature loop for each toolkit, with a "what to check" list at every step
 - **Automated, paced walkthrough** (`/start-guide`) that runs one step at a time and waits for you to look at the result before continuing
 - **Multi-language support** (`/choose-language`)
 - **Extra skills** that spec-kit itself doesn't provide: getting interviewed about a vague idea before specifying it, recovering context, explaining the project in its own terms, and tracking recurring problems found by analysis
@@ -19,7 +20,7 @@ In your agent chat:
 ```
 /start-guide
 ```
-This walks through installing git, uv, Python, and spec-kit, then creates your project in its own folder (`/new-project`) with this guide and all the skills copied in. You then open your agent in the project folder and run `/start-guide` again for the constitution and your first feature — pausing after each step for you to confirm.
+This walks through installing git, choosing spec-kit or OpenSpec, installing what it needs (uv + Python, or Node.js) and the toolkit itself, then creates your project in its own folder (`/new-project`) with this guide and all the skills copied in. You then open your agent in the project folder and run `/start-guide` again for the project rules and your first feature — pausing after each step for you to confirm.
 
 This folder is only for setup and for creating or updating projects. Your app never lives here.
 
@@ -53,7 +54,7 @@ speckit-for-my-dad/
 
 ### What a user project gets
 
-`/new-project` creates the project in its own folder with `specify init`, then copies in:
+`/new-project` creates the project in its own folder with `specify init` or `openspec init`, then copies in:
 
 ```
 my-app/
@@ -98,7 +99,20 @@ Once `specify init` has run, spec-kit exposes these commands. Depending on which
 | `converge` | Compare codebase against spec/plan/tasks and append any remaining work as tasks |
 | `taskstoissues` | Convert tasks into GitHub issues (optional, team use) |
 
-## Project Skills (this repo, not spec-kit itself)
+## Standard OpenSpec Commands
+
+Once `openspec init` has run, OpenSpec exposes these commands. Their form depends on the agent: `/opsx:propose` (Claude Code), `/opsx-propose` (opencode), `$openspec-propose` (Codex CLI) — `openspec init` prints the right one.
+
+| Command | Purpose |
+|---|---|
+| `explore` | Think through an idea against the existing code, without writing anything |
+| `propose` | Create a change folder: proposal, spec deltas, design, tasks |
+| `update` | Bring a change's documents back in line after you edit one of them |
+| `apply` | Work through the change's tasks and write the code |
+| `sync` | Merge a change's spec deltas into `openspec/specs/` (optional — archive does it) |
+| `archive` | Finish the change: merge spec deltas and move it to `openspec/changes/archive/` |
+
+## Project Skills (this repo, not spec-kit or OpenSpec itself)
 
 | Skill | What it does |
 |---|---|
@@ -111,17 +125,17 @@ Once `specify init` has run, spec-kit exposes these commands. Depending on which
 | `/deployer` | Helps put your project on a server (SSH, Docker, git), keeps the server secure, sets up one-command deploys |
 | `/where-am-i` | Recovers where you left off and suggests next steps |
 | `/create-new-task` | Adds one task to the current `tasks.md` without regenerating it |
-| `/fix-issues-after-analyze` | Fixes findings from `analyze` and logs them to `issues-table.md`, flagging repeat problems |
+| `/fix-issues-after-analyze` | Fixes findings from `analyze` and logs them to `issues-table.md`, flagging repeat problems (spec-kit only) |
 
 ## What Can You Build?
 
-Websites, mobile apps, desktop apps, APIs, CLI tools, data pipelines, AI/ML applications — spec-kit is not tied to a stack. Build one feature at a time; see [guide-for-dad.md](./guide-for-dad.md) for why that matters.
+Websites, mobile apps, desktop apps, APIs, CLI tools, data pipelines, AI/ML applications — neither toolkit is tied to a stack. Build one feature at a time; see [guide-for-dad.md](./guide-for-dad.md) for why that matters.
 
 ## Prerequisites
 
 - git — [git-scm.com](https://git-scm.com/downloads)
-- [uv](https://docs.astral.sh/uv/) for installing spec-kit
-- Python **3.11+**
+- For spec-kit: [uv](https://docs.astral.sh/uv/) and Python **3.11+**
+- For OpenSpec: [Node.js](https://nodejs.org/) **20.19+**
 - One of: Claude Code, Codex CLI, opencode, or another Agent-Skills-compatible AI coding agent
 
 ## Contributing
@@ -140,7 +154,7 @@ The `/grill-me` skill is adapted from Rob Mitterando's [grill-me-skill](https://
 
 ## License
 
-MIT — see [LICENSE](./LICENSE). This project is a guide layer on top of spec-kit; spec-kit itself is installed separately via `uv tool install specify-cli` and is not vendored here.
+MIT — see [LICENSE](./LICENSE). This project is a guide layer on top of spec-kit and OpenSpec; they are installed separately (`uv tool install specify-cli`, `npm install -g @fission-ai/openspec`) and are not vendored here.
 
 ---
 

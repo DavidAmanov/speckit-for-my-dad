@@ -9,7 +9,9 @@ Figure out where the user left off and tell them, in plain language, then offer 
 
 1. Review the current chat history for what was being worked on.
 2. Check the most recent git commit: message and changed files (`git log -1` and `git show --stat HEAD`).
-3. Check for a `.specify/` or `specs/*/` directory. If a feature branch/folder exists, read whichever of `spec.md`, `plan.md`, `tasks.md`, or `issues-table.md` was modified most recently, and note how many tasks in `tasks.md` are checked off (`[X]`) versus open (`[ ]`).
+3. Check which toolkit the project uses and where its current feature stands:
+   - **spec-kit** (`.specify/` exists): check `specs/*/`. If a feature branch/folder exists, read whichever of `spec.md`, `plan.md`, `tasks.md`, or `issues-table.md` was modified most recently, and note how many tasks in `tasks.md` are checked off (`[X]`) versus open (`[ ]`).
+   - **OpenSpec** (`openspec/` exists): run `openspec list` (or look in `openspec/changes/`, ignoring `archive/`). For each change in progress, note which of `proposal.md`, `specs/`, `design.md`, `tasks.md` exist and how many tasks in its `tasks.md` are ticked (`[x]`) versus open (`[ ]`). No change in progress → the last feature was archived; check `openspec/changes/archive/` for the latest one.
 4. Check for any recent error output in the conversation that was never resolved.
 5. Check which folder you're in:
    - `.agents/skills/new-project/SKILL.md` exists → this is the speckit-for-my-dad folder, not a project. Projects live in their own folders. Tell the user that, and offer `/new-project` for a new one, or ask them to open the agent in their project folder to continue one.
@@ -21,12 +23,12 @@ Summarize in plain language: what feature/step they're on, what artifact exists,
 
 Then present these options:
 
-1. **Continue** — if there is remaining work (unfinished tasks, the next step in the spec-kit loop per `guide-for-dad.md`), offer to continue it. Name the specific next command (e.g. `speckit-implement` or `/speckit.implement`).
+1. **Continue** — if there is remaining work (unfinished tasks, the next step in this project's loop per `guide-for-dad.md`), offer to continue it. Name the specific next command (e.g. `speckit-implement` / `/speckit.implement`, or `/opsx:apply` / `/opsx:archive` in the form this agent uses).
 2. **Review the code** — run a code review of the recent changes.
 3. **I don't understand, explain again** — ask the user what specifically was unclear, give a focused explanation of just that point, then present these same three options again.
 
 ## Notes
 
 - If no plan or log file exists yet, base the summary only on chat history and the last commit.
-- If there is no remaining work, omit the "Continue" option and instead confirm the feature loop is complete and ask if they want to start a new feature (pointing to `/grill-me` → `speckit-specify`).
+- If there is no remaining work, omit the "Continue" option and instead confirm the feature loop is complete and ask if they want to start a new feature (pointing to `/grill-me` → `speckit-specify`, or `/grill-me` → `/opsx:propose` for OpenSpec).
 - Option 3 can repeat as many times as needed until the user picks something else.
