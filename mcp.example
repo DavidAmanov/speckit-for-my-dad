@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"],
+      "_note": "If npx is not in PATH, replace 'npx' with its full path, e.g. /usr/local/bin/npx or /home/user/.nvm/versions/node/v20.0.0/bin/npx"
+    }
+  }
+}

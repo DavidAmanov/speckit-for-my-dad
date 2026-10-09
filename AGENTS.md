@@ -17,6 +17,7 @@ This file (`AGENTS.md`) is read natively by Codex CLI and opencode, and by Claud
 | Skill | Use it to... |
 |---|---|
 | `new-project` | Create the user's project (spec-kit or OpenSpec) in its own folder and install the skills, guide, and rules into it — or update them in an existing project |
+| `connect-playwright` | Connect Playwright MCP to the current project: finds npx, writes the git-ignored MCP config for the current agent, and verifies the setup works |
 
 <!-- speckit-for-my-dad:start -->
 ## Language
@@ -40,6 +41,7 @@ These skills and `guide-for-dad.md` come from the speckit-for-my-dad repo. In a 
 | `where-am-i` | Recover context: where the user left off and what to do next |
 | `create-new-task` | Add a single new task to the current `tasks.md` (spec-kit feature or OpenSpec change) without regenerating it |
 | `fix-issues-after-analyze` | Apply fixes for findings from `speckit-analyze`, logging them to `issues-table.md` (spec-kit only) |
+| `connect-playwright` | Connect Playwright MCP to this project — finds npx, writes the git-ignored MCP config for Claude Code / Codex CLI / opencode, verifies browser tools are available |
 
 Depending on your harness, invoke these as `/start-guide` (Claude Code, opencode) or by name (Codex CLI and other Agent-Skills-only harnesses auto-select skills by relevance — you can still say "run the start-guide skill").
 
