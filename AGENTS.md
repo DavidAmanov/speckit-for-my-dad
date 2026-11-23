@@ -22,7 +22,7 @@ This file (`AGENTS.md`) is read natively by Codex CLI and opencode, and by Claud
 <!-- speckit-for-my-dad:start -->
 ## Language
 
-Current communication language: **English (eng)**
+Current communication language: **Russian (rus)**
 
 Talk to the user in this language, and write all generated spec-kit / OpenSpec documentation (`spec.md`, `plan.md`, `tasks.md`, `proposal.md`, `design.md`, etc.) in it, until the `choose-language` skill changes this line. Supported: `eng`, `rus`, `spa`, `fra`, `deu`, `ita`, `jpn`, `zho` — or any language the user names.
 
