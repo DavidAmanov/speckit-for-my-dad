@@ -39,6 +39,7 @@ These skills and `guide-for-dad.md` come from the speckit-for-my-dad repo. In a 
 | `helper` | Answer questions about the user's own project code (structure, modules, database, concepts) — plain, brief, read-only |
 | `deployer` | Deploy the project to a server (SSH, Docker, git), diagnose hosting, harden SSH, write one-command deploy config — never app code |
 | `where-am-i` | Recover context: where the user left off and what to do next |
+| `app-map` | Keep `app-map.md` — Mermaid block diagrams of the app (parts, blocks inside each, links) — in line with the fresh uncommitted code; writes only that file |
 | `create-new-task` | Add a single new task to the current `tasks.md` (spec-kit feature or OpenSpec change) without regenerating it |
 | `fix-issues-after-analyze` | Apply fixes for findings from `speckit-analyze`, logging them to `issues-table.md` (spec-kit only) |
 | `connect-playwright` | Connect Playwright MCP to this project — finds npx, writes the git-ignored MCP config for Claude Code / Codex CLI / opencode, verifies browser tools are available |
