@@ -46,6 +46,7 @@ speckit-for-my-dad/
     ├── helper/SKILL.md
     ├── deployer/SKILL.md
     ├── where-am-i/SKILL.md
+    ├── app-map/SKILL.md
     ├── create-new-task/SKILL.md
     └── fix-issues-after-analyze/SKILL.md
 ```
@@ -124,6 +125,7 @@ Once `openspec init` has run, OpenSpec exposes these commands. Their form depend
 | `/helper` | Answers questions about your project's code, structure, and database in plain language — never edits anything |
 | `/deployer` | Helps put your project on a server (SSH, Docker, git), keeps the server secure, sets up one-command deploys |
 | `/where-am-i` | Recovers where you left off and suggests next steps |
+| `/app-map` | Keeps `app-map.md` — block diagrams of how your app is built — up to date with your fresh code |
 | `/create-new-task` | Adds one task to the current `tasks.md` without regenerating it |
 | `/fix-issues-after-analyze` | Fixes findings from `analyze` and logs them to `issues-table.md`, flagging repeat problems (spec-kit only) |
 

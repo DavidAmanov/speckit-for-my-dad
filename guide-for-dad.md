@@ -279,6 +279,7 @@ There is no "project type" prompt — neither toolkit asks what kind of app you'
 **Description:** `speckit-implement` processes the task list and writes the actual implementation.
 
 - **What to check:** this is the step where you actually try the feature. Run the app, do the thing the feature describes, and confirm it works the way `spec.md` said it should.
+- **See what got built (optional):** run `/app-map`. It updates `app-map.md`, a block diagram of your app, from the code this step just wrote, and tells you which blocks are new or changed.
 
 ---
 
@@ -356,6 +357,7 @@ There is no "project type" prompt — neither toolkit asks what kind of app you'
 
 - **What to check:** this is the step where you actually try the feature. Run the app, do the thing the feature describes, and confirm it behaves the way the scenarios in `specs/` said it should.
 - **Found a problem?** Say what's wrong. If it's a bug, the agent fixes it. If the *plan itself* was wrong, go back to Step 11 (update the documents), then `/opsx:apply` again — the documents must stay true.
+- **See what got built (optional):** run `/app-map`. It updates `app-map.md`, a block diagram of your app, from the code this step just wrote, and tells you which blocks are new or changed.
 
 ---
 
